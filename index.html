@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: aliceblue;
+        }
+
+        .container {
+            background-color: rgb(50, 35, 16);
+            color: blueviolet;
+            grid-template-columns: 1fr;
+            display: grid;
+        }
+
+        @media (min-width: 767px) {
+            .container {
+                color: rgb(241, 249, 246);
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                color: rgb(97, 116, 109);
+                grid-template-columns: repeat(2, 1fr);
+                /* grid-template-columns: repeat(3, 1fr); */
+            }
+        }
+
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .innerBox2 ul {
+            display: flex;
+            padding-inline-start: 0px;
+
+
+        }
+
+        .innerBox2 ul li {
+            list-style: none;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <navbar>
+            <div class="main">
+                <div class="innerBox1">
+                    <h1>Harsh</h1>
+                </div>
+                <div class="innerBox2">
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </div>
+        </navbar>
+        <about>
+            <div class="div">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, modi iusto quos ratione atque nulla
+                quibusdam. Ipsum, quibusdam. Soluta cumque eaque odio distinctio unde consequatur hic placeat rerum
+                reprehenderit rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic commodi numquam ullam
+                laboriosam consectetur ducimus incidunt molestias necessitatibus est! Numquam, esse harum eius sint
+                voluptatem nobis sed quas eum rem.
+                Illum, debitis accusamus quisquam nostrum sit labore vitae nisi officiis voluptatum architecto suscipit
+                facere ut quae in amet velit ea praesentium dolor quis qui. Inventore suscipit perferendis mollitia
+                optio ipsa.
+                Nemo debitis odio voluptatum temporibus. Excepturi, delectus illo! Officia earum possimus facilis nemo
+                nulla! Earum, vel quam, enim accusantium corporis similique autem voluptates est reprehenderit sunt
+                libero ullam voluptatibus doloribus.
+            </div>
+        </about>
+    </div>
+
+</body>
+
+</html>
