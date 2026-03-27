@@ -1,21 +1,20 @@
-const { useState } = require("react");
+import { useEffect, useState } from "react";
 
-export function App() {
-  let [count, setCount] = useState(0);
+export default function App() {
+  const [data, setData] = useState([]);
 
-  function increse_count(){
-    setCount(count + 1)
-  }
-  function decrese_count(){
-    if (prev > 0){
-      setCount(prev => prev - 1)
-    }
-  }
-  return (<>
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(data => setData(data));
+  }, []);
+
+  return (
     <div>
-      <button onClick={decrese_count}>-</button>
-      <h1>{count}</h1>
-      <button onClick={increse_count}>+</button>
+      <h1>Posts</h1>
+      {data.slice(0,5).map(post => (
+        <p key={post.id}>{post.title}</p>
+      ))}
     </div>
-  </>)
+  );
 }
