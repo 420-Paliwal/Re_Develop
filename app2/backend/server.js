@@ -28,12 +28,25 @@ app.post("/login", async (req, res) => {
 
 app.post("/signup", async (req, res) => {
     const {email, password} = req.body;
-    const user = new User({
+    
+    const existingUser = await User.findOne({email})
+
+    if(existingUser){
+        return res.status(400).json({success: false, message: "User already exists"});
+    }
+    
+    try {const user = new User({
         email,
         password
     });
     await user.save();
     res.json({Message : "User Saved"});
+}catch(err){
+    if (err.code === 11000){
+        return res.json({message: " Duplicate email"})
+    }
+    res.json({message: "Error"})
+}
 })
 
 app.listen(5000, ()=> {
