@@ -35,9 +35,23 @@ const LoginForm = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if(data.success){
+                    localStorage.setItem("token", data.token)
+                }
                 setLoading(false);
             })
+    }
+
+    function getProfile(){
+        setLoading(true)
+        console.log("entered")
+        fetch("http://localhost:5000/profile",{
+            headers:{
+                authorization : localStorage.getItem("token")
+            }
+        }).then(res => res.json())
+        .then(data => console.log(data));   
+        setLoading(false)       
     }
 return (
     <>
@@ -58,6 +72,7 @@ return (
                 <button type="button" onClick={showPassword}>{passwordTypeButton}</button>
                 <button type='submit' disabled={loading}>{loading ? "loading" : "login"}</button>
             </form>
+                <button onClick={getProfile} disabled={loading}>{loading ? "loading" : "Get Profile"}</button>
         </div>
     </>
 )
