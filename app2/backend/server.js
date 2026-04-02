@@ -15,7 +15,6 @@ mongoose.connect("mongodb://harsh0420:harsh0420@ac-tv91lcj-shard-00-00.7u9mdhj.m
 app.get("/", async (req, res) => {
     const allUser = await User.find()
     console.log(allUser);
-    
     res.send("success")
 })
 
